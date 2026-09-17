@@ -1,0 +1,9 @@
+.git
+.env
+**/.env
+**/node_modules
+client
+server-go/*.exe
+server-go/*.log
+server-go/uploads
+*.log
