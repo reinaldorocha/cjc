@@ -1,0 +1,98 @@
+.cursos-page {
+  --bg2:#19191e; --bg3:#24242b; --text:#f5f5f7; --text3:#a9a9b6; --border:#ffffff20;
+  --accent:#e7434c; --accent-soft:#e7434c20;
+  background:#111115; color:var(--text); border-radius:18px; overflow:hidden;
+  padding:0 0 40px; min-width:0; max-width:1600px;
+}
+.cursos-page .cursos-heading {margin:0;padding:25px 32px;gap:20px;background:#111115;position:relative;z-index:1}
+.cursos-marca{display:flex;align-items:center;gap:14px;min-width:0}
+.cursos-marca-icone{background:#e7434c;color:#fff;display:grid;place-items:center;width:40px;height:46px;border-radius:10px;font-size:18px;flex-shrink:0}
+.cursos-page .curso-eyebrow{font-size:9px;letter-spacing:2px;color:#aeabb9}
+.cursos-page .cursos-heading h1{font-size:23px;letter-spacing:-.7px;margin:3px 0 0}
+.cursos-catalogo-total{font-size:12px;color:#a9a9b6}
+.cursos-page>.curso-notice,.cursos-page>.curso-alerta,.cursos-page>.cursos-vazio{margin:20px 32px}
+.curso-banner{position:relative;isolation:isolate;min-height:520px;display:flex;align-items:center;background:radial-gradient(ellipse at 80% 30%,#694650 0,transparent 55%),linear-gradient(125deg,#15151e,#26263b 65%,#503438);overflow:hidden}
+.curso-banner:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#111115 0%,transparent 40%),linear-gradient(90deg,#111115f5 5%,#111115be 42%,#11111520 100%)}
+.curso-banner-imagem{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;z-index:-2}
+.curso-banner-conteudo{width:min(700px,72%);padding:48px 48px 90px}
+.curso-banner-selo{font-size:9px;letter-spacing:3px;font-weight:700;display:flex;gap:9px;align-items:center;color:#e4dfe4}
+.curso-banner-selo>span{color:#ff6068;font-size:17px}
+.curso-banner-categoria{display:flex;align-items:center;gap:9px;font-size:12px;color:#e9c4c5;margin:28px 0 12px}
+.curso-banner-categoria>span{color:#e7434c}
+.curso-banner h2{font-size:clamp(32px,4.5vw,64px);line-height:1.05;letter-spacing:-2px;margin:0 0 22px;text-wrap:balance;overflow-wrap:anywhere;color:#fff}
+.curso-banner-meta{display:flex;align-items:center;flex-wrap:wrap;gap:14px;font-size:12px;color:#d9d7df}
+.curso-banner-meta strong{color:#88d7ad;font-weight:600}
+.curso-banner-tag{border:1px solid #ffffff45;padding:3px 7px;border-radius:3px;font-size:10px}
+.curso-banner-descricao{font-size:14px;color:#d0ced7;line-height:1.8;margin:20px 0 25px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;max-width:510px}
+.curso-banner-acoes{display:flex;gap:10px;flex-wrap:wrap}
+.cursos-page .curso-banner-acoes button{display:flex;align-items:center;justify-content:center;gap:10px;padding:13px 23px;border:0;border-radius:5px;font-size:13px;font-weight:700;min-height:46px}
+.cursos-page .curso-banner-assistir{background:#fff;color:#16161c}
+.cursos-page .curso-banner-assistir:hover{background:#dedee4}
+.cursos-page .curso-banner-info{background:#ffffff25;color:#fff;backdrop-filter:blur(12px)}
+.curso-banner-info>span{font-size:20px}
+.curso-banner-detalhes{margin-top:20px;padding:16px;border:1px solid #ffffff25;background:#111115dc;border-radius:8px;font-size:12px;line-height:1.7;max-height:220px;overflow:auto;white-space:pre-wrap}
+.curso-banner-detalhes p+p{margin-top:10px}
+.curso-banner-seletor{position:absolute;right:35px;bottom:45px;display:flex;gap:4px}
+.cursos-page .curso-banner-seletor button{padding:14px 3px;border:0;background:transparent;border-radius:0}
+.curso-banner-seletor button>span{display:block;width:24px;height:3px;background:#ffffff45;transition:width .2s}
+.curso-banner-seletor button[aria-pressed=true]>span{background:#e7434c;width:42px}
+.curso-banner-rodape{position:absolute;bottom:38px;left:48px;color:#8b879a;font-size:9px;letter-spacing:3px}
+.cursos-page .curso-colecao{padding:0 32px;margin-top:28px;min-width:0}
+.curso-trilho-heading{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:12px}
+.curso-trilho-heading h2{font-size:19px;font-weight:650;letter-spacing:-.3px;margin:0}
+.curso-trilho-heading>div{display:flex;gap:6px;flex-shrink:0}
+.cursos-page .curso-trilho-heading button{width:32px;height:32px;padding:0;border-radius:50%;font-size:23px;line-height:1;background:#ffffff08;color:#d6d4de}
+.cursos-page .cursos-trilho{gap:16px;padding:8px 2px 20px;align-items:flex-start;scrollbar-width:thin;scrollbar-color:#49434e transparent}
+.cursos-page .cursos-trilho:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:6px}
+.cursos-page .curso-card{flex-basis:290px;border:0;border-radius:9px;background:#1c1c23;box-shadow:0 5px 18px #0002;transition:transform .2s,box-shadow .2s}
+.cursos-page .curso-card:hover,.cursos-page .curso-card:focus-within{transform:translateY(-5px);box-shadow:0 12px 25px #0007}
+.cursos-page .curso-card-capa{aspect-ratio:16/9;background:radial-gradient(ellipse at 70% 15%,#745764,transparent 70%),linear-gradient(140deg,#282837,#42343e)}
+.cursos-page .curso-card-capa img{transition:transform .35s}
+.cursos-page .curso-card:hover .curso-card-capa img{transform:scale(1.04)}
+.cursos-page .curso-play{background:linear-gradient(transparent 30%,#0009);font-size:25px;text-shadow:0 2px 12px #000;opacity:.8}
+.cursos-page .curso-card:hover .curso-play{opacity:1}
+.cursos-page .curso-count{font-size:10px;bottom:10px;right:10px}
+.cursos-page .curso-card-info{padding:16px 17px 18px}
+.cursos-page .curso-card-info h3{font-size:15px;line-height:1.45;overflow-wrap:anywhere;margin:0 0 6px}
+.cursos-page .curso-card-info p{font-size:11px;margin:0;color:#a9a9b6}
+.cursos-grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin:0 32px 28px}.cursos-grade .curso-card{min-width:0;border:0;border-radius:9px;background:#1c1c23;box-shadow:0 5px 18px #0002;transition:transform .2s,box-shadow .2s}.cursos-grade .curso-card:hover,.cursos-grade .curso-card:focus-within{transform:translateY(-5px);box-shadow:0 12px 25px #0007}.cursos-grade .curso-card-capa{aspect-ratio:16/9;background:radial-gradient(ellipse at 70% 15%,#745764,transparent 70%),linear-gradient(140deg,#282837,#42343e)}.cursos-grade .curso-card-capa img{transition:transform .35s}.cursos-grade .curso-card:hover .curso-card-capa img{transform:scale(1.04)}.cursos-grade .curso-play{background:linear-gradient(transparent 30%,#0009);font-size:25px;text-shadow:0 2px 12px #000;opacity:.8}.cursos-grade .curso-card:hover .curso-play{opacity:1}.cursos-grade .curso-count{font-size:10px;bottom:10px;right:10px}.cursos-grade .curso-card-info{padding:16px 17px 18px}.cursos-grade .curso-card-info h3{font-size:15px;line-height:1.45;overflow-wrap:anywhere;margin:0 0 6px}
+.curso-card-gestao{margin-top:14px;border-top:1px solid #ffffff15;padding-top:12px}
+.curso-card-gestao>summary{font-size:12px;color:#d6d4de;cursor:pointer;display:flex;justify-content:space-between;list-style:none;min-height:24px;align-items:center}
+.curso-card-gestao>summary::-webkit-details-marker{display:none}
+.curso-card-gestao[open]>summary>span{transform:rotate(180deg)}
+.cursos-page .curso-card-gestao .curso-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:12px}
+.cursos-page .curso-retomar-card{position:relative;isolation:isolate;overflow:hidden;min-height:190px;flex-basis:290px;border:0;border-radius:9px;padding:24px 20px 18px;justify-content:flex-end;gap:9px;background:linear-gradient(120deg,#30273b,#44323a)}
+.curso-retomar-card:after{content:'';position:absolute;inset:0;background:linear-gradient(transparent,#101015eb 70%);z-index:-1}
+.curso-retomar-card>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.cursos-page .curso-retomar-card>span{color:#ffc7ca;font-size:10px}
+.cursos-page .curso-retomar-card strong{font-size:15px;color:#fff}
+.cursos-page .curso-retomar-card small{font-size:10px;color:#d3cfd9}
+.cursos-page .cursos-filtros{margin:32px 32px 16px;gap:12px}
+.cursos-page .cursos-filtros input,.cursos-page .cursos-filtros select{background:#ffffff06;border-color:#ffffff20;font-size:12px}
+.cursos-page .curso-filtro-abas{margin:0 32px 24px;flex-wrap:wrap}
+.cursos-page .curso-filtro-abas button{border-radius:20px;background:transparent;padding:8px 17px;font-size:11px}
+.cursos-page .curso-filtro-abas button[aria-pressed=true]{background:#fff;border-color:#fff;color:#16161c}
+@media(min-width:1400px){.curso-banner{min-height:580px}.cursos-page .curso-card{flex-basis:310px}}
+@media(max-width:800px){.cursos-page .cursos-heading{padding:20px}.cursos-catalogo-total{display:none}.curso-banner{min-height:480px}.curso-banner-conteudo{padding:40px 26px 90px;width:85%}.curso-banner h2{letter-spacing:-1px}.curso-banner-rodape{left:26px}.curso-banner-seletor{right:24px}.cursos-page .curso-colecao{padding:0 20px}.cursos-page .cursos-filtros{margin:28px 20px 14px}.cursos-page .curso-filtro-abas{margin-left:20px;margin-right:20px}.cursos-page .curso-card{flex-basis:260px}.cursos-grade{margin-left:20px;margin-right:20px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}}
+@media(max-width:500px){.cursos-page{border-radius:12px}.cursos-page .cursos-heading{padding:18px 16px;gap:14px}.cursos-page .cursos-heading h1{font-size:19px}.cursos-page .curso-eyebrow{font-size:8px;letter-spacing:1px}.cursos-marca-icone{width:32px;height:38px;font-size:14px}.cursos-page .cursos-heading .curso-primary{font-size:11px;padding:9px 12px}.curso-banner{min-height:540px;align-items:flex-end}.curso-banner:after{background:linear-gradient(0deg,#111115 2%,#111115d9 50%,#11111540 100%)}.curso-banner-imagem{object-position:65% center}.curso-banner-conteudo{width:100%;padding:100px 22px 90px}.curso-banner-selo{font-size:8px;letter-spacing:2px}.curso-banner h2{font-size:36px}.curso-banner-descricao{font-size:12px}.curso-banner-categoria{margin-top:20px}.curso-banner-acoes{gap:8px}.cursos-page .curso-banner-acoes button{padding:11px 14px;font-size:11px}.curso-banner-rodape{font-size:8px;left:22px;letter-spacing:1.4px}.curso-banner-seletor{right:18px;bottom:42px}.curso-banner-seletor button>span{width:15px}.curso-banner-seletor button[aria-pressed=true]>span{width:24px}.cursos-page .curso-card{flex-basis:245px}.curso-trilho-heading h2{font-size:17px}.cursos-page .cursos-filtros select{width:100%}.cursos-grade{margin-left:16px;margin-right:16px;grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.cursos-page .curso-card,.cursos-page .curso-card-capa img,.curso-banner-seletor button>span{transition:none}.cursos-page .curso-card:hover,.cursos-page .curso-card:focus-within,.cursos-page .curso-card:hover .curso-card-capa img{transform:none}}
+
+.curso-card-abrir{margin-top:12px;padding:0;border:0;background:transparent;color:#f1c0c3;font-size:12px;font-weight:700}
+.curso-detalhe{--bg2:#19191e;--text:#f5f5f7;--text3:#a9a9b6;--border:#ffffff20;--accent:#e7434c;background:#111115;color:var(--text);border-radius:18px;overflow:hidden;padding:0 0 40px;min-width:0;max-width:1600px}
+.curso-detalhe-voltar{margin:20px 32px 0;padding:0;border:0;background:transparent;color:#d6d4de;font-size:12px;font-weight:600}
+.curso-detalhe-banner{position:relative;isolation:isolate;min-height:470px;display:flex;align-items:flex-end;overflow:hidden;background:radial-gradient(ellipse at 80% 25%,#694650 0,transparent 55%),linear-gradient(125deg,#15151e,#26263b 65%,#503438)}
+.curso-detalhe-banner:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#111115 0%,transparent 48%),linear-gradient(90deg,#111115f5 5%,#111115be 43%,#11111520 100%)}
+.curso-detalhe-banner>img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:center 35%}
+.curso-detalhe-banner-conteudo{width:min(700px,72%);padding:48px}
+.curso-detalhe-banner .curso-eyebrow{font-size:9px;letter-spacing:2px;color:#d4d0d9}
+.curso-detalhe-categoria{display:flex;gap:9px;align-items:center;margin:24px 0 10px;font-size:12px;color:#e9c4c5}.curso-detalhe-categoria span{color:#e7434c}
+.curso-detalhe-banner h1{max-width:700px;margin:0;color:#fff;font-size:clamp(34px,4.5vw,64px);line-height:1.05;letter-spacing:-2px;overflow-wrap:anywhere;text-wrap:balance}
+.curso-detalhe-descricao{max-width:540px;margin:20px 0 24px;color:#d0ced7;font-size:14px;line-height:1.8}
+.curso-detalhe-banner-acoes{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.curso-detalhe-assistir{min-height:46px;padding:13px 22px;border:0;border-radius:5px;background:#fff;color:#16161c;font-size:13px;font-weight:700}.curso-detalhe-assistir:hover{background:#dedee4}.curso-detalhe-progresso{font-size:12px;color:#d9d7df}
+.curso-detalhe-gestao{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 32px;padding:18px 0;border-bottom:1px solid #ffffff18}.curso-detalhe-gestao .curso-actions{justify-content:flex-end;margin:0}.curso-detalhe-gestao .curso-actions button{font-size:12px}
+.curso-detalhe .curso-colecao{padding:0 32px;margin-top:28px;min-width:0}.curso-detalhe .curso-trilho-heading{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:12px}.curso-detalhe .curso-trilho-heading h2{margin:0;font-size:19px;font-weight:650}.curso-detalhe .curso-trilho-heading>div{display:flex;gap:6px}.curso-detalhe .curso-trilho-heading button{width:32px;height:32px;padding:0;border-radius:50%;border:0;background:#ffffff08;color:#d6d4de;font-size:23px;line-height:1}.curso-detalhe .cursos-trilho{display:flex;gap:16px;overflow-x:auto;padding:8px 2px 20px;scrollbar-width:thin;scrollbar-color:#49434e transparent}
+.curso-modulo-card{flex:0 0 290px;overflow:hidden;border-radius:9px;background:#1c1c23;box-shadow:0 5px 18px #0002;transition:transform .2s,box-shadow .2s}.curso-modulo-card:hover,.curso-modulo-card:focus-within{transform:translateY(-5px);box-shadow:0 12px 25px #0007}.curso-modulo-card.bloqueado{opacity:.68}.curso-modulo-card-capa{position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;border:0;background:radial-gradient(ellipse at 70% 15%,#745764,transparent 70%),linear-gradient(140deg,#282837,#42343e);overflow:hidden;text-align:left}.curso-modulo-card-capa img{width:100%;height:100%;object-fit:cover;transition:transform .35s}.curso-modulo-card:hover .curso-modulo-card-capa img{transform:scale(1.04)}.curso-modulo-card-capa:disabled{cursor:not-allowed}.curso-modulo-card-numero{position:absolute;left:12px;top:12px;padding:4px 6px;border-radius:3px;background:#111115bd;color:#fff;font-size:9px;font-weight:700;letter-spacing:1px}.curso-modulo-card .curso-play{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(transparent 30%,#0009);color:#fff;font-size:25px;text-shadow:0 2px 12px #000}.curso-modulo-card-info{padding:16px 17px 18px}.curso-modulo-card-info>span{color:#a9a9b6;font-size:10px}.curso-modulo-card-info h2{margin:6px 0;font-size:15px;line-height:1.4;overflow-wrap:anywhere}.curso-modulo-card-info p{min-height:32px;margin:0;color:#a9a9b6;font-size:11px;line-height:1.45}.curso-modulo-card-info progress{width:100%;height:4px;margin-top:14px;accent-color:#e7434c}
+.curso-detalhe>.curso-alerta,.curso-detalhe>.cursos-vazio{margin:20px 32px}
+@media(max-width:800px){.curso-detalhe-voltar{margin-left:20px}.curso-detalhe-banner{min-height:440px}.curso-detalhe-banner-conteudo{width:85%;padding:40px 26px}.curso-detalhe-gestao,.curso-detalhe .curso-colecao{margin-left:0;margin-right:0;padding-left:20px;padding-right:20px}.curso-detalhe-gestao{align-items:flex-start;flex-direction:column}.curso-detalhe-gestao .curso-actions{justify-content:flex-start}.curso-modulo-card{flex-basis:260px}}
+@media(max-width:500px){.curso-detalhe{border-radius:12px}.curso-detalhe-banner{min-height:520px}.curso-detalhe-banner:after{background:linear-gradient(0deg,#111115 2%,#111115d9 50%,#11111540 100%)}.curso-detalhe-banner>img{object-position:65% center}.curso-detalhe-banner-conteudo{width:100%;padding:100px 22px 54px}.curso-detalhe-banner h1{font-size:36px;letter-spacing:-1px}.curso-detalhe-descricao{font-size:12px}.curso-detalhe-gestao,.curso-detalhe .curso-colecao{padding-left:16px;padding-right:16px}.curso-modulo-card{flex-basis:245px}}
+@media(prefers-reduced-motion:reduce){.curso-modulo-card,.curso-modulo-card-capa img{transition:none}.curso-modulo-card:hover,.curso-modulo-card:focus-within,.curso-modulo-card:hover .curso-modulo-card-capa img{transform:none}}

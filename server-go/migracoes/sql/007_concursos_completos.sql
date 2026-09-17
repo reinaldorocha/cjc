@@ -1,0 +1,2 @@
+ALTER TABLE concursos
+  ADD COLUMN logotipo LONGTEXT NULL AFTER cargo;

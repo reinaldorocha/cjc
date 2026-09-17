@@ -1,0 +1,1 @@
+ALTER TABLE cursos ADD COLUMN modo_exibicao VARCHAR(20) NOT NULL DEFAULT 'curso';

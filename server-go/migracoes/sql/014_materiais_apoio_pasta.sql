@@ -1,0 +1,1 @@
+ALTER TABLE materiais_apoio ADD COLUMN pasta VARCHAR(255) DEFAULT '';

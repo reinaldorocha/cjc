@@ -1,0 +1,8 @@
+﻿node_modules/
+client/
+server-go/uploads/
+server-go/.env
+server-go/*.exe
+server-go/*.log
+.env
+*.log
