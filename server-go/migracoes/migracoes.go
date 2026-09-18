@@ -13,6 +13,8 @@ import (
 //go:embed sql/*.sql
 var arquivos embed.FS
 
+const migracaoInicial = "001_schema_inicial.sql"
+
 func Aplicar(ctx context.Context, db *sql.DB) error {
 	if _, err := db.ExecContext(ctx, `CREATE TABLE IF NOT EXISTS historico_migracoes (arquivo VARCHAR(255) PRIMARY KEY, aplicado_em DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP)`); err != nil {
 		return err
@@ -29,6 +31,18 @@ func Aplicar(ctx context.Context, db *sql.DB) error {
 	}
 	sort.Strings(nomes)
 	for _, nome := range nomes {
+		if nome == migracaoInicial {
+			var migracoesLegadas int
+			if err := db.QueryRowContext(ctx, `SELECT COUNT(*) FROM historico_migracoes WHERE arquivo <> ?`, nome).Scan(&migracoesLegadas); err != nil {
+				return err
+			}
+			if migracoesLegadas > 0 {
+				if _, err := db.ExecContext(ctx, `INSERT IGNORE INTO historico_migracoes (arquivo) VALUES (?)`, nome); err != nil {
+					return err
+				}
+				continue
+			}
+		}
 		var existe int
 		if err := db.QueryRowContext(ctx, `SELECT COUNT(*) FROM historico_migracoes WHERE arquivo = ?`, nome).Scan(&existe); err != nil {
 			return err

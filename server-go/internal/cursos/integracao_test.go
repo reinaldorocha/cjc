@@ -1,14 +1,15 @@
 package cursos
 
 import (
+	"chega-junto-concurseiro-web/internal/banco"
+	"chega-junto-concurseiro-web/internal/configuracao"
+	"chega-junto-concurseiro-web/internal/identificador"
+	"chega-junto-concurseiro-web/migracoes"
 	"context"
 	"fmt"
 	"os"
 	"testing"
 	"time"
-	"chega-junto-concurseiro-web/internal/banco"
-	"chega-junto-concurseiro-web/internal/configuracao"
-	"chega-junto-concurseiro-web/internal/identificador"
 )
 
 // Opt-in: cria e remove somente um banco temporário exclusivo deste teste.
@@ -34,16 +35,8 @@ func TestIntegracaoAcessoCursos(t *testing.T) {
 			t.Error("limpeza do banco temporário:", err)
 		}
 	}()
-	// Apenas o esquema usado por cursos; a migração antiga 009 de outros
-	// domínios tem um problema independente no executor de migrações.
-	for _, nome := range []string{"001_estrutura_inicial.sql", "002_dominio_estudos.sql", "017_banco_questoes.sql", "019_cursos.sql", "020_cursos_pdfs.sql", "021_cursos_aprendizagem.sql", "022_cursos_capas.sql", "023_cursos_modo_exibicao.sql"} {
-		conteudo, err := os.ReadFile("migracoes/sql/" + nome)
-		if err != nil {
-			t.Fatal(err)
-		}
-		if _, err = db.ExecContext(ctx, string(conteudo)); err != nil {
-			t.Fatal(nome, err)
-		}
+	if err := migracoes.Aplicar(ctx, db); err != nil {
+		t.Fatal(err)
 	}
 	exec := func(q string, args ...any) {
 		t.Helper()

@@ -1,14 +1,15 @@
 package cronogramas
 
 import (
+	"chega-junto-concurseiro-web/internal/banco"
+	"chega-junto-concurseiro-web/internal/configuracao"
+	"chega-junto-concurseiro-web/internal/identificador"
+	"chega-junto-concurseiro-web/migracoes"
 	"context"
 	"fmt"
 	"os"
 	"testing"
 	"time"
-	"chega-junto-concurseiro-web/internal/banco"
-	"chega-junto-concurseiro-web/internal/configuracao"
-	"chega-junto-concurseiro-web/internal/identificador"
 )
 
 func TestIntegracaoReplanejamento(t *testing.T) {
@@ -39,12 +40,8 @@ func TestIntegracaoReplanejamento(t *testing.T) {
 			t.Fatal(err)
 		}
 	}
-	for _, nome := range []string{"001_estrutura_inicial.sql", "002_dominio_estudos.sql", "003_cronogramas_versionados.sql", "005_rotinas_estudo.sql"} {
-		dados, err := os.ReadFile("migracoes/sql/" + nome)
-		if err != nil {
-			t.Fatal(err)
-		}
-		exec(string(dados))
+	if err := migracoes.Aplicar(ctx, db); err != nil {
+		t.Fatal(err)
 	}
 	aluno, outro, concurso, c2 := identificador.UUID(), identificador.UUID(), identificador.UUID(), identificador.UUID()
 	for _, id := range []string{aluno, outro} {
