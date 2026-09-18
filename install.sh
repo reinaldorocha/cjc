@@ -85,4 +85,5 @@ install_docker
 configure
 docker compose --env-file "$ENV_FILE" -f "$COMPOSE_FILE" up -d --build
 docker compose --env-file "$ENV_FILE" -f "$COMPOSE_FILE" ps
-echo "Aplicação disponível em https://$(grep '^DOMAIN=' "$ENV_FILE" | cut -d= -f2)"
+echo "Aplicação iniciada em http://IP_DA_VPS:8082"
+echo "No Nginx Proxy Manager, direcione o domínio para IP_DA_VPS:8082 e habilite SSL."
