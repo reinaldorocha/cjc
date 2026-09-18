@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_PATH="${BASH_SOURCE[0]:-$0}"
+ROOT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
 APP_DIR="${APP_DIR:-/opt/chega_junto_concurseiro}"
 REPOSITORY_URL="https://github.com/reinaldorocha/cjc.git"
 ACTION="${1:-install}"
@@ -80,7 +81,7 @@ install_docker() {
 
 ask() {
   local label="$1" default="${2:-}" value
-  read -r -p "$label${default:+ [$default]}: " value
+  read -r -p "$label${default:+ [$default]}: " value </dev/tty
   printf '%s' "${value:-$default}"
 }
 
@@ -99,7 +100,7 @@ configure() {
   [[ -n "$domain" ]] || { echo "The domain is required." >&2; exit 1; }
   email="$(ask 'Administrator email')"
   [[ -n "$email" ]] || { echo "The email is required." >&2; exit 1; }
-  read -r -s -p 'Initial administrator password: ' app_password; echo
+  read -r -s -p 'Initial administrator password: ' app_password </dev/tty; echo
   [[ -n "$app_password" ]] || { echo "The password is required." >&2; exit 1; }
 
   mysql_network="$(ask 'Docker network of the existing MySQL' 'getfy_default')"
@@ -113,7 +114,7 @@ configure() {
 
   docker network inspect "$mysql_network" >/dev/null || { echo "Docker network not found: $mysql_network" >&2; exit 1; }
   docker inspect "$mysql_container" >/dev/null || { echo "MySQL container not found: $mysql_container" >&2; exit 1; }
-  read -r -s -p 'Root password of the existing MySQL: ' mysql_root_password; echo
+  read -r -s -p 'Root password of the existing MySQL: ' mysql_root_password </dev/tty; echo
   [[ -n "$mysql_root_password" ]] || { echo "The MySQL root password is required." >&2; exit 1; }
 
   db_password="$(openssl rand -hex 32)"
