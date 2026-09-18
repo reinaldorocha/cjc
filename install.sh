@@ -4,6 +4,7 @@ set -Eeuo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 APP_DIR="${APP_DIR:-/opt/chega_junto_concurseiro}"
 REPOSITORY_URL="https://github.com/reinaldorocha/cjc.git"
+ACTION="${1:-install}"
 DEPLOY_DIR="$ROOT_DIR/deploy"
 ENV_FILE="$DEPLOY_DIR/.env.production"
 COMPOSE_FILE="$DEPLOY_DIR/compose.production.yml"
@@ -30,6 +31,10 @@ install_git() {
 
 prepare_application_directory() {
   if [[ "$ROOT_DIR" == "$APP_DIR" ]]; then
+    if [[ "$ACTION" == "--update" ]]; then
+      install_git
+      $SUDO git -C "$APP_DIR" pull --ff-only
+    fi
     return
   fi
 
