@@ -16,7 +16,7 @@ FROM alpine:3.21
 RUN apk add --no-cache ca-certificates tzdata
 WORKDIR /app
 COPY --from=build /api /app/api
-COPY --from=frontend /src/client-react/dist /app/public
+COPY --from=frontend /src/client /app/public
 RUN addgroup -S app && adduser -S app -G app && mkdir -p /app/uploads && chown -R app:app /app
 USER app
 EXPOSE 8080
