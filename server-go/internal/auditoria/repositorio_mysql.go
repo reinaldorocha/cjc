@@ -3,7 +3,7 @@ package auditoria
 import (
 	"context"
 	"database/sql"
-	"track-concursos-web/internal/identificador"
+	"chega-junto-concurseiro-web/internal/identificador"
 )
 
 type repositorioMySQL struct{ banco *sql.DB }

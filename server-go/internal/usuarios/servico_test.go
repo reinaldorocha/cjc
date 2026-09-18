@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"track-concursos-web/internal/dominio"
+	"chega-junto-concurseiro-web/internal/dominio"
 )
 
 type repositorioFalso struct {

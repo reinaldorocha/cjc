@@ -2,8 +2,8 @@ package transporte
 
 import (
 	"net/http"
-	"track-concursos-web/internal/concursos"
-	"track-concursos-web/internal/modelos"
+	"chega-junto-concurseiro-web/internal/concursos"
+	"chega-junto-concurseiro-web/internal/modelos"
 )
 
 func (s *Servidor) listarConcursos(w http.ResponseWriter, r *http.Request, c modelos.ContextoAutenticado) {

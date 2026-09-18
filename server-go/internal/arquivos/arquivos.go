@@ -12,7 +12,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"track-concursos-web/internal/identificador"
+	"chega-junto-concurseiro-web/internal/identificador"
 )
 
 const (

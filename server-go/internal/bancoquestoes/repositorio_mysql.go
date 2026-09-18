@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"track-concursos-web/internal/identificador"
+	"chega-junto-concurseiro-web/internal/identificador"
 )
 
 type repositorioMySQL struct {

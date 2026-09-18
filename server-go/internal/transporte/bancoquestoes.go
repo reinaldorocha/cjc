@@ -3,8 +3,8 @@ package transporte
 import (
 	"net/http"
 
-	"track-concursos-web/internal/bancoquestoes"
-	"track-concursos-web/internal/modelos"
+	"chega-junto-concurseiro-web/internal/bancoquestoes"
+	"chega-junto-concurseiro-web/internal/modelos"
 )
 
 func (s *Servidor) listarBancoQuestoes(w http.ResponseWriter, r *http.Request, c modelos.ContextoAutenticado) {

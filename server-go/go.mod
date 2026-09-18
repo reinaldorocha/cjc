@@ -1,4 +1,4 @@
-module track-concursos-web
+module chega-junto-concurseiro-web
 
 go 1.25.0
 

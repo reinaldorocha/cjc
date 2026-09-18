@@ -1,7 +1,7 @@
 # Autenticação e segurança
 
 - Login em `POST /api/v1/autenticacao/entrar`.
-- Sessão no servidor identificada pelo cookie HttpOnly `sessao_track`.
+- Sessão no servidor identificada pelo cookie HttpOnly `sessao_chega_junto_concurseiro`.
 - Token CSRF no cabeçalho `X-Token-CSRF` para escritas.
 - Senhas com bcrypt.
 - Middleware verifica sessão, perfil (`mestre`, `mentor`, `aluno`) e vínculo do aluno.

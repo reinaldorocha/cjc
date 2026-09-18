@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"strings"
 
-	"track-concursos-web/internal/arquivos"
-	"track-concursos-web/internal/materiaisapoio"
-	"track-concursos-web/internal/modelos"
+	"chega-junto-concurseiro-web/internal/arquivos"
+	"chega-junto-concurseiro-web/internal/materiaisapoio"
+	"chega-junto-concurseiro-web/internal/modelos"
 )
 
 func salvarMaterialArquivo(w http.ResponseWriter, r *http.Request, c modelos.ContextoAutenticado, s *Servidor) {

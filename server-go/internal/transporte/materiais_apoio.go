@@ -6,8 +6,8 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	"track-concursos-web/internal/materiaisapoio"
-	"track-concursos-web/internal/modelos"
+	"chega-junto-concurseiro-web/internal/materiaisapoio"
+	"chega-junto-concurseiro-web/internal/modelos"
 )
 
 func (s *Servidor) listarMateriaisApoio(w http.ResponseWriter, r *http.Request, c modelos.ContextoAutenticado) {

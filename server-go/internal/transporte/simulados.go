@@ -3,8 +3,8 @@ package transporte
 import (
 	"encoding/json"
 	"net/http"
-	"track-concursos-web/internal/modelos"
-	"track-concursos-web/internal/simulados"
+	"chega-junto-concurseiro-web/internal/modelos"
+	"chega-junto-concurseiro-web/internal/simulados"
 )
 
 func (s *Servidor) listarSimulados(w http.ResponseWriter, r *http.Request, c modelos.ContextoAutenticado) {

@@ -5,7 +5,7 @@ import (
 	"context"
 	"database/sql"
 	"strings"
-	"track-concursos-web/internal/identificador"
+	"chega-junto-concurseiro-web/internal/identificador"
 	"unicode"
 	"unicode/utf8"
 )

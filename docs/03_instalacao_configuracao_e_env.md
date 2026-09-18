@@ -36,7 +36,7 @@ Não versione `.env`; use `.env.example` como modelo. Na primeira execução, ag
 
 ## Docker Compose
 
-O serviço `mysql_db` utiliza MySQL 8, publica a porta 3306 e cria o banco `track_concursos`. O serviço `phpmyadmin_web` utiliza o MySQL como servidor e publica a porta 8080. Para parar os serviços sem remover dados:
+O serviço `mysql_db` utiliza MySQL 8, publica a porta 3306 e cria o banco `chega_junto_concurseiro`. O serviço `phpmyadmin_web` utiliza o MySQL como servidor e publica a porta 8080. Para parar os serviços sem remover dados:
 
 ```bash
 docker compose stop

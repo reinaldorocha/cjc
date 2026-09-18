@@ -2,8 +2,8 @@ package transporte
 
 import (
 	"net/http"
-	"track-concursos-web/internal/cartoes"
-	"track-concursos-web/internal/modelos"
+	"chega-junto-concurseiro-web/internal/cartoes"
+	"chega-junto-concurseiro-web/internal/modelos"
 )
 
 func (s *Servidor) listarBaralhos(w http.ResponseWriter, r *http.Request, c modelos.ContextoAutenticado) {

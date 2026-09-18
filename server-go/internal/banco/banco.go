@@ -7,7 +7,7 @@ import (
 	"regexp"
 	"time"
 
-	"track-concursos-web/internal/configuracao"
+	"chega-junto-concurseiro-web/internal/configuracao"
 
 	_ "github.com/go-sql-driver/mysql"
 )

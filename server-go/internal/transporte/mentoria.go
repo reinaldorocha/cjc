@@ -2,8 +2,8 @@ package transporte
 
 import (
 	"net/http"
-	"track-concursos-web/internal/modelos"
-	"track-concursos-web/internal/usuarios"
+	"chega-junto-concurseiro-web/internal/modelos"
+	"chega-junto-concurseiro-web/internal/usuarios"
 )
 
 func (s *Servidor) criarAlunoPeloMentor(w http.ResponseWriter, r *http.Request, c modelos.ContextoAutenticado) {

@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"track-concursos-web/internal/arquivos"
+	"chega-junto-concurseiro-web/internal/arquivos"
 )
 
 type Config struct {

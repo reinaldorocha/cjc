@@ -64,8 +64,8 @@ configure() {
 
   mysql_network="$(ask 'Docker network of the existing MySQL' 'getfy_default')"
   mysql_container="$(ask 'Existing MySQL container' 'getfy-mysql-1')"
-  db_name="$(ask 'Database name' 'track_concursos')"
-  db_user="$(ask 'Database user' 'track_app')"
+  db_name="$(ask 'Database name' 'chega_junto_concurseiro')"
+  db_user="$(ask 'Database user' 'chega_junto_concurseiro_app')"
   validate_name "$mysql_network"
   validate_name "$mysql_container"
   validate_name "$db_name"

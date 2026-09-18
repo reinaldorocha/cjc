@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"track-concursos-web/internal/dominio"
+	"chega-junto-concurseiro-web/internal/dominio"
 
 	"golang.org/x/crypto/bcrypt"
 )

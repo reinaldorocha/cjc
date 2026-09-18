@@ -4,7 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"encoding/json"
-	"track-concursos-web/internal/identificador"
+	"chega-junto-concurseiro-web/internal/identificador"
 )
 
 const acessoAluno = `EXISTS (SELECT 1 FROM mentor_alunos ma JOIN usuarios u ON u.id=ma.mentor_id JOIN usuarios aluno ON aluno.id=ma.aluno_id

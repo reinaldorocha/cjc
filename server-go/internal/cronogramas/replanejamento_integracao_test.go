@@ -6,9 +6,9 @@ import (
 	"os"
 	"testing"
 	"time"
-	"track-concursos-web/internal/banco"
-	"track-concursos-web/internal/configuracao"
-	"track-concursos-web/internal/identificador"
+	"chega-junto-concurseiro-web/internal/banco"
+	"chega-junto-concurseiro-web/internal/configuracao"
+	"chega-junto-concurseiro-web/internal/identificador"
 )
 
 func TestIntegracaoReplanejamento(t *testing.T) {

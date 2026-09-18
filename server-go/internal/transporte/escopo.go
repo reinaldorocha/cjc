@@ -3,7 +3,7 @@ package transporte
 import (
 	"context"
 	"net/http"
-	"track-concursos-web/internal/modelos"
+	"chega-junto-concurseiro-web/internal/modelos"
 )
 
 func (s *Servidor) resolverAluno(ctx context.Context, w http.ResponseWriter, c modelos.ContextoAutenticado, solicitado string) (string, bool) {

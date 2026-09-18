@@ -7,15 +7,15 @@ import (
 	"strings"
 	"time"
 
-	"track-concursos-web/internal/autenticacao"
-	"track-concursos-web/internal/identificador"
-	"track-concursos-web/internal/modelos"
-	"track-concursos-web/internal/ratelimit"
+	"chega-junto-concurseiro-web/internal/autenticacao"
+	"chega-junto-concurseiro-web/internal/identificador"
+	"chega-junto-concurseiro-web/internal/modelos"
+	"chega-junto-concurseiro-web/internal/ratelimit"
 
 	"golang.org/x/time/rate"
 )
 
-const nomeCookieSessao = "sessao_track"
+const nomeCookieSessao = "sessao_chega_junto_concurseiro"
 
 type manipuladorAutenticado func(http.ResponseWriter, *http.Request, modelos.ContextoAutenticado)
 

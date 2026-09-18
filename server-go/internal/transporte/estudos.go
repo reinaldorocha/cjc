@@ -2,8 +2,8 @@ package transporte
 
 import (
 	"net/http"
-	"track-concursos-web/internal/estudos"
-	"track-concursos-web/internal/modelos"
+	"chega-junto-concurseiro-web/internal/estudos"
+	"chega-junto-concurseiro-web/internal/modelos"
 )
 
 func (s *Servidor) listarSessoes(w http.ResponseWriter, r *http.Request, c modelos.ContextoAutenticado) {

@@ -1,4 +1,4 @@
-# API Go — Track Concursos
+# API Go — Chega Junto Concurseiro
 
 Backend da aplicação web. A API usa MySQL como fonte de dados, autenticação por sessão em cookie `HttpOnly` e autorização para os papéis mestre, mentor e aluno.
 

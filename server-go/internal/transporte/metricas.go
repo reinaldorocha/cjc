@@ -2,7 +2,7 @@ package transporte
 
 import (
 	"net/http"
-	"track-concursos-web/internal/modelos"
+	"chega-junto-concurseiro-web/internal/modelos"
 )
 
 func (s *Servidor) resumoMetricas(w http.ResponseWriter, r *http.Request, c modelos.ContextoAutenticado) {

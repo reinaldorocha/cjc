@@ -1,6 +1,6 @@
 # Visão geral
 
-O Track Concursos é uma aplicação web para organização de estudos. A interface é React e a API é Go; os dados são persistidos em MySQL.
+O Chega Junto Concurseiro é uma aplicação web para organização de estudos. A interface é React e a API é Go; os dados são persistidos em MySQL.
 
 ## Perfis
 

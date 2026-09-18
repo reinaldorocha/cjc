@@ -2,10 +2,10 @@ package transporte
 
 import (
 	"net/http"
-	"track-concursos-web/internal/cartoes"
-	"track-concursos-web/internal/concursos"
-	"track-concursos-web/internal/editais"
-	"track-concursos-web/internal/modelos"
+	"chega-junto-concurseiro-web/internal/cartoes"
+	"chega-junto-concurseiro-web/internal/concursos"
+	"chega-junto-concurseiro-web/internal/editais"
+	"chega-junto-concurseiro-web/internal/modelos"
 )
 
 func (s *Servidor) catalogarConcursosMentor(w http.ResponseWriter, r *http.Request, c modelos.ContextoAutenticado) {

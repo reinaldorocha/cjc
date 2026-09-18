@@ -10,10 +10,10 @@ import (
 	"syscall"
 	"time"
 
-	"track-concursos-web/internal/banco"
-	"track-concursos-web/internal/configuracao"
-	"track-concursos-web/internal/transporte"
-	"track-concursos-web/migracoes"
+	"chega-junto-concurseiro-web/internal/banco"
+	"chega-junto-concurseiro-web/internal/configuracao"
+	"chega-junto-concurseiro-web/internal/transporte"
+	"chega-junto-concurseiro-web/migracoes"
 )
 
 func main() {

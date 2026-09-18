@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS mentor_whitelabel (
   mentor_id CHAR(36) NOT NULL PRIMARY KEY,
-  nome_plataforma VARCHAR(255) NOT NULL DEFAULT 'Track Concursos',
+  nome_plataforma VARCHAR(255) NOT NULL DEFAULT 'Chega Junto Concurseiro',
   logo_url TEXT NULL,
   cor_primaria VARCHAR(50) NOT NULL DEFAULT '#4f8ef7',
   cor_secundaria VARCHAR(50) NOT NULL DEFAULT '#7c5cfc',

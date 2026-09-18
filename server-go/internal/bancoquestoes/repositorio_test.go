@@ -9,7 +9,7 @@ import (
 )
 
 func TestListarQuestoes(t *testing.T) {
-	db, err := sql.Open("mysql", "root:rootpassword@tcp(127.0.0.1:3306)/track_concursos?parseTime=true")
+	db, err := sql.Open("mysql", "root:rootpassword@tcp(127.0.0.1:3306)/chega_junto_concurseiro?parseTime=true")
 	if err != nil {
 		t.Fatal(err)
 	}

@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"time"
 
-	"track-concursos-web/internal/arquivos"
-	"track-concursos-web/internal/modelos"
-	"track-concursos-web/internal/whitelabel"
+	"chega-junto-concurseiro-web/internal/arquivos"
+	"chega-junto-concurseiro-web/internal/modelos"
+	"chega-junto-concurseiro-web/internal/whitelabel"
 )
 
 func (s *Servidor) obterWhiteLabelMentor(w http.ResponseWriter, r *http.Request, c modelos.ContextoAutenticado) {

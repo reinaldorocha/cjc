@@ -167,7 +167,7 @@ export const Sidebar: React.FC = () => {
                 <span>🏆</span>
               )}
               <span style={{ fontSize: '1rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                {wlConfig.nomePlataforma || 'Track Concursos'}
+                {wlConfig.nomePlataforma || 'Chega Junto Concurseiro'}
               </span>
             </Link>
           )}

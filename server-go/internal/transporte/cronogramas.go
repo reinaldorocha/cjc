@@ -3,8 +3,8 @@ package transporte
 import (
 	"net/http"
 	"time"
-	"track-concursos-web/internal/cronogramas"
-	"track-concursos-web/internal/modelos"
+	"chega-junto-concurseiro-web/internal/cronogramas"
+	"chega-junto-concurseiro-web/internal/modelos"
 )
 
 func (s *Servidor) obterCronograma(w http.ResponseWriter, r *http.Request, c modelos.ContextoAutenticado) {

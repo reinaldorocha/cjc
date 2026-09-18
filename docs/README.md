@@ -1,4 +1,4 @@
-# Documentação do Track Concursos
+# Documentação do Chega Junto Concurseiro
 
 Documentação baseada no código atual da aplicação web.
 

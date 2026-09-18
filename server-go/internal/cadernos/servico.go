@@ -5,8 +5,8 @@ import (
 	"database/sql"
 	"errors"
 	"strings"
-	"track-concursos-web/internal/dominio"
-	"track-concursos-web/internal/identificador"
+	"chega-junto-concurseiro-web/internal/dominio"
+	"chega-junto-concurseiro-web/internal/identificador"
 )
 
 type Caderno struct {

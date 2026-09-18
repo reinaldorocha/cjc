@@ -2,8 +2,8 @@ package transporte
 
 import (
 	"net/http"
-	"track-concursos-web/internal/modelos"
-	"track-concursos-web/internal/revisoes"
+	"chega-junto-concurseiro-web/internal/modelos"
+	"chega-junto-concurseiro-web/internal/revisoes"
 )
 
 func (s *Servidor) listarRevisoes(w http.ResponseWriter, r *http.Request, c modelos.ContextoAutenticado) {

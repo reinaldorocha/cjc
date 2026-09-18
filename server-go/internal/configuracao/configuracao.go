@@ -70,7 +70,7 @@ func Carregar() (Configuracao, error) {
 	cfg := Configuracao{
 		Ambiente: texto("AMBIENTE", "desenvolvimento"), Porta: texto("PORTA", "8080"), FusoHorario: fuso,
 		DBHost: texto("DB_HOST", "127.0.0.1"), DBPorta: portaBanco, DBUsuario: texto("DB_USUARIO", "root"),
-		DBSenha: os.Getenv("DB_SENHA"), DBNome: texto("DB_NOME", "track_concursos"),
+		DBSenha: os.Getenv("DB_SENHA"), DBNome: texto("DB_NOME", "chega_junto_concurseiro"),
 		DBCriarBanco: dbCriarBanco,
 		MestreEmail:  texto("MESTRE_EMAIL", ""), MestreSenha: texto("MESTRE_SENHA", ""),
 		OrigemFrontend:  texto("ORIGEM_FRONTEND", "http://127.0.0.1:5173"),

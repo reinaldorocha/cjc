@@ -9,7 +9,7 @@ import (
 	_ "image/jpeg"
 	_ "image/png"
 	"strings"
-	"track-concursos-web/internal/identificador"
+	"chega-junto-concurseiro-web/internal/identificador"
 )
 
 const LimiteCapa = 5 << 20

@@ -4,8 +4,8 @@ import (
 	"errors"
 	"net/http"
 	"time"
-	"track-concursos-web/internal/autenticacao"
-	"track-concursos-web/internal/modelos"
+	"chega-junto-concurseiro-web/internal/autenticacao"
+	"chega-junto-concurseiro-web/internal/modelos"
 )
 
 func (s *Servidor) saude(w http.ResponseWriter, _ *http.Request) {

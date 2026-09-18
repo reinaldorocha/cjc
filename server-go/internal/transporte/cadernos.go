@@ -2,8 +2,8 @@ package transporte
 
 import (
 	"net/http"
-	"track-concursos-web/internal/cadernos"
-	"track-concursos-web/internal/modelos"
+	"chega-junto-concurseiro-web/internal/cadernos"
+	"chega-junto-concurseiro-web/internal/modelos"
 )
 
 func (s *Servidor) listarCadernos(w http.ResponseWriter, r *http.Request, c modelos.ContextoAutenticado) {

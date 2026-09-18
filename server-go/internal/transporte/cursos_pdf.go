@@ -6,8 +6,8 @@ import (
 	"mime"
 	"net/http"
 	"time"
-	"track-concursos-web/internal/cursos"
-	"track-concursos-web/internal/modelos"
+	"chega-junto-concurseiro-web/internal/cursos"
+	"chega-junto-concurseiro-web/internal/modelos"
 )
 
 func (s *Servidor) enviarPDFCurso(w http.ResponseWriter, r *http.Request, c modelos.ContextoAutenticado) {

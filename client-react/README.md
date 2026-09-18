@@ -1,6 +1,6 @@
-# Track Concursos — cliente React
+# Chega Junto Concurseiro — cliente React
 
-Interface React + TypeScript da versão web do Track Concursos.
+Interface React + TypeScript da versão web do Chega Junto Concurseiro.
 
 ## Desenvolvimento
 

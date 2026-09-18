@@ -6,7 +6,7 @@ import (
 	"encoding/json"
 	"errors"
 	"time"
-	"track-concursos-web/internal/identificador"
+	"chega-junto-concurseiro-web/internal/identificador"
 )
 
 type repositorioMySQL struct {

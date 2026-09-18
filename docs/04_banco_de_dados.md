@@ -9,7 +9,7 @@ DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_USUARIO=root
 DB_SENHA=rootpassword
-DB_NOME=track_concursos
+DB_NOME=chega_junto_concurseiro
 ```
 
 Os nomes e relacionamentos exatos estão nos arquivos SQL. Não há suporte a SQLite nem uso de `localStorage` para dados do sistema.
