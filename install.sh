@@ -2,6 +2,8 @@
 set -Eeuo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+APP_DIR="${APP_DIR:-/opt/chega_junto_concurseiro}"
+REPOSITORY_URL="https://github.com/reinaldorocha/cjc.git"
 DEPLOY_DIR="$ROOT_DIR/deploy"
 ENV_FILE="$DEPLOY_DIR/.env.production"
 COMPOSE_FILE="$DEPLOY_DIR/compose.production.yml"
@@ -11,6 +13,39 @@ if [[ "${EUID}" -ne 0 ]]; then
 else
   SUDO=""
 fi
+
+install_git() {
+  if command -v git >/dev/null 2>&1; then
+    return
+  fi
+
+  if ! command -v apt-get >/dev/null 2>&1; then
+    echo "Install Git and run this script again." >&2
+    exit 1
+  fi
+
+  $SUDO apt-get update
+  $SUDO apt-get install -y git
+}
+
+prepare_application_directory() {
+  if [[ "$ROOT_DIR" == "$APP_DIR" ]]; then
+    return
+  fi
+
+  install_git
+  if [[ -d "$APP_DIR/.git" ]]; then
+    $SUDO git -C "$APP_DIR" pull --ff-only
+  elif [[ -e "$APP_DIR" ]]; then
+    echo "The application directory already exists and is not a Git repository: $APP_DIR" >&2
+    exit 1
+  else
+    $SUDO mkdir -p "$(dirname "$APP_DIR")"
+    $SUDO git clone "$REPOSITORY_URL" "$APP_DIR"
+  fi
+
+  exec $SUDO "$APP_DIR/install.sh"
+}
 
 install_docker() {
   if command -v docker >/dev/null 2>&1 && docker compose version >/dev/null 2>&1; then
@@ -99,6 +134,7 @@ EOF
   chmod 600 "$ENV_FILE"
 }
 
+prepare_application_directory
 install_docker
 configure
 docker compose --env-file "$ENV_FILE" -f "$COMPOSE_FILE" up -d --build

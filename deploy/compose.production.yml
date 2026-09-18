@@ -1,3 +1,5 @@
+name: chega_junto_concurseiro
+
 services:
   api:
     build:
