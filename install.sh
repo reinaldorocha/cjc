@@ -89,6 +89,12 @@ validate_name() {
   [[ "$1" =~ ^[a-zA-Z0-9_.-]+$ ]] || { echo "Invalid value: $1" >&2; exit 1; }
 }
 
+compose_env_literal() {
+  local escaped
+  escaped="$(printf '%s' "$1" | sed "s/'/\\\\'/g")"
+  printf "'%s'" "$escaped"
+}
+
 configure() {
   if [[ -f "$ENV_FILE" ]]; then
     return
@@ -128,7 +134,7 @@ DB_NOME=$db_name
 DB_USUARIO=$db_user
 DB_SENHA=$db_password
 MESTRE_EMAIL=$email
-MESTRE_SENHA=$app_password
+MESTRE_SENHA=$(compose_env_literal "$app_password")
 AMBIENTE=producao
 FUSO_HORARIO=America/Fortaleza
 ORIGEM_FRONTEND=https://$domain
