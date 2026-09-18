@@ -1,20 +1,4 @@
 services:
-  mysql:
-    image: mysql:8.4
-    restart: unless-stopped
-    environment:
-      MYSQL_DATABASE: ${DB_NOME}
-      MYSQL_USER: ${DB_USUARIO}
-      MYSQL_PASSWORD: ${DB_SENHA}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-    volumes:
-      - mysql_data:/var/lib/mysql
-    healthcheck:
-      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -p$$MYSQL_ROOT_PASSWORD --silent"]
-      interval: 10s
-      timeout: 5s
-      retries: 12
-
   api:
     build:
       context: ..
@@ -24,8 +8,8 @@ services:
       AMBIENTE: ${AMBIENTE}
       PORTA: "8080"
       FUSO_HORARIO: ${FUSO_HORARIO}
-      DB_HOST: mysql
-      DB_PORT: "3306"
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
       DB_USUARIO: ${DB_USUARIO}
       DB_SENHA: ${DB_SENHA}
       DB_NOME: ${DB_NOME}
@@ -40,9 +24,9 @@ services:
       UPLOADS_PATH: /app/uploads
     volumes:
       - uploads_data:/app/uploads
-    depends_on:
-      mysql:
-        condition: service_healthy
+    networks:
+      - default
+      - getfy_mysql
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/api/v1/saude"]
       interval: 30s
@@ -61,5 +45,9 @@ services:
         condition: service_healthy
 
 volumes:
-  mysql_data:
   uploads_data:
+
+networks:
+  getfy_mysql:
+    external: true
+    name: ${MYSQL_DOCKER_NETWORK}

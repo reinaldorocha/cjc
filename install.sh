@@ -18,7 +18,7 @@ install_docker() {
   fi
 
   if ! command -v apt-get >/dev/null 2>&1; then
-    echo "Instale Docker Engine e Docker Compose Plugin e execute este script novamente." >&2
+    echo "Install Docker Engine and Docker Compose Plugin, then run this script again." >&2
     exit 1
   fi
 
@@ -26,10 +26,7 @@ install_docker() {
   . /etc/os-release
   case "$ID" in
     ubuntu|debian) docker_os="$ID" ;;
-    *)
-      echo "Este instalador suporta Ubuntu e Debian." >&2
-      exit 1
-      ;;
+    *) echo "This installer supports Ubuntu and Debian." >&2; exit 1 ;;
   esac
 
   $SUDO apt-get install -y ca-certificates curl gnupg
@@ -47,27 +44,48 @@ ask() {
   printf '%s' "${value:-$default}"
 }
 
+validate_name() {
+  [[ "$1" =~ ^[a-zA-Z0-9_.-]+$ ]] || { echo "Invalid value: $1" >&2; exit 1; }
+}
+
 configure() {
   if [[ -f "$ENV_FILE" ]]; then
     return
   fi
 
-  local domain email app_password db_password root_password
-  domain="$(ask 'Domínio da aplicação (ex.: app.exemplo.com)')"
-  [[ -n "$domain" ]] || { echo 'O domínio é obrigatório.' >&2; exit 1; }
-  email="$(ask 'E-mail do administrador')"
-  [[ -n "$email" ]] || { echo 'O e-mail é obrigatório.' >&2; exit 1; }
-  read -r -s -p 'Senha inicial do administrador: ' app_password; echo
-  [[ -n "$app_password" ]] || { echo 'A senha é obrigatória.' >&2; exit 1; }
+  local domain email app_password db_password mysql_root_password
+  local mysql_network mysql_container db_name db_user
+  domain="$(ask 'Application domain (example: app.example.com)')"
+  [[ -n "$domain" ]] || { echo "The domain is required." >&2; exit 1; }
+  email="$(ask 'Administrator email')"
+  [[ -n "$email" ]] || { echo "The email is required." >&2; exit 1; }
+  read -r -s -p 'Initial administrator password: ' app_password; echo
+  [[ -n "$app_password" ]] || { echo "The password is required." >&2; exit 1; }
+
+  mysql_network="$(ask 'Docker network of the existing MySQL' 'getfy_default')"
+  mysql_container="$(ask 'Existing MySQL container' 'getfy-mysql-1')"
+  db_name="$(ask 'Database name' 'track_concursos')"
+  db_user="$(ask 'Database user' 'track_app')"
+  validate_name "$mysql_network"
+  validate_name "$mysql_container"
+  validate_name "$db_name"
+  validate_name "$db_user"
+
+  docker network inspect "$mysql_network" >/dev/null || { echo "Docker network not found: $mysql_network" >&2; exit 1; }
+  docker inspect "$mysql_container" >/dev/null || { echo "MySQL container not found: $mysql_container" >&2; exit 1; }
+  read -r -s -p 'Root password of the existing MySQL: ' mysql_root_password; echo
+  [[ -n "$mysql_root_password" ]] || { echo "The MySQL root password is required." >&2; exit 1; }
+
   db_password="$(openssl rand -hex 32)"
-  root_password="$(openssl rand -hex 32)"
+  docker exec -e "MYSQL_PWD=$mysql_root_password" "$mysql_container" mysql -uroot -e "CREATE DATABASE IF NOT EXISTS \`$db_name\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; CREATE USER IF NOT EXISTS '$db_user'@'%' IDENTIFIED BY '$db_password'; ALTER USER '$db_user'@'%' IDENTIFIED BY '$db_password'; GRANT ALL PRIVILEGES ON \`$db_name\`.* TO '$db_user'@'%'; FLUSH PRIVILEGES;"
 
   cat > "$ENV_FILE" <<EOF
-DOMAIN=$domain
-DB_NOME=track_concursos
-DB_USUARIO=track_app
+MYSQL_DOCKER_NETWORK=$mysql_network
+DB_HOST=$mysql_container
+DB_PORT=3306
+DB_NOME=$db_name
+DB_USUARIO=$db_user
 DB_SENHA=$db_password
-MYSQL_ROOT_PASSWORD=$root_password
 MESTRE_EMAIL=$email
 MESTRE_SENHA=$app_password
 AMBIENTE=producao
@@ -85,5 +103,5 @@ install_docker
 configure
 docker compose --env-file "$ENV_FILE" -f "$COMPOSE_FILE" up -d --build
 docker compose --env-file "$ENV_FILE" -f "$COMPOSE_FILE" ps
-echo "Aplicação iniciada em http://IP_DA_VPS:8082"
-echo "No Nginx Proxy Manager, direcione o domínio para IP_DA_VPS:8082 e habilite SSL."
+echo "Application started at http://IP_DA_VPS:8082"
+echo "In Nginx Proxy Manager, forward the domain to IP_DA_VPS:8082 and enable SSL."
