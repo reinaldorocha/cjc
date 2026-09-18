@@ -22,6 +22,7 @@ type Configuracao struct {
 	MestreSenha    string
 	OrigemFrontend string
 	UploadsPath    string
+	FrontendPath   string
 
 	// Rate limiting
 	RateGlobalRPS   float64 // requisições por segundo (global, por IP)
@@ -75,6 +76,7 @@ func Carregar() (Configuracao, error) {
 		MestreEmail:  texto("MESTRE_EMAIL", ""), MestreSenha: texto("MESTRE_SENHA", ""),
 		OrigemFrontend:  texto("ORIGEM_FRONTEND", "http://127.0.0.1:5173"),
 		UploadsPath:     texto("UPLOADS_PATH", "./uploads"),
+		FrontendPath:    texto("FRONTEND_PATH", ""),
 		RateGlobalRPS:   rateGlobalRPS,
 		RateGlobalBurst: rateGlobalBurst,
 		RateLoginRPS:    rateLoginRPS,

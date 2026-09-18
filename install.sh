@@ -143,7 +143,7 @@ EOF
 prepare_application_directory
 install_docker
 configure
-docker compose --env-file "$ENV_FILE" -f "$COMPOSE_FILE" up -d --build
+docker compose --env-file "$ENV_FILE" -f "$COMPOSE_FILE" up -d --build --remove-orphans
 docker compose --env-file "$ENV_FILE" -f "$COMPOSE_FILE" ps
 echo "Application started at http://IP_DA_VPS:8082"
 echo "In Nginx Proxy Manager, forward the domain to IP_DA_VPS:8082 and enable SSL."

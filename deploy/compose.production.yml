@@ -24,6 +24,9 @@ services:
       RATE_LOGIN_RPS: ${RATE_LOGIN_RPS}
       RATE_LOGIN_BURST: ${RATE_LOGIN_BURST}
       UPLOADS_PATH: /app/uploads
+      FRONTEND_PATH: /app/public
+    ports:
+      - "8082:8080"
     volumes:
       - uploads_data:/app/uploads
     networks:
@@ -34,17 +37,6 @@ services:
       interval: 30s
       timeout: 5s
       retries: 3
-
-  web:
-    build:
-      context: ..
-      dockerfile: deploy/Dockerfile.web
-    restart: unless-stopped
-    ports:
-      - "8082:80"
-    depends_on:
-      api:
-        condition: service_healthy
 
 volumes:
   uploads_data:

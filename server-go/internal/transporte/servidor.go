@@ -1,10 +1,6 @@
 package transporte
 
 import (
-	"context"
-	"database/sql"
-	"log/slog"
-	"net/http"
 	"chega-junto-concurseiro-web/internal/auditoria"
 	"chega-junto-concurseiro-web/internal/autenticacao"
 	"chega-junto-concurseiro-web/internal/bancoquestoes"
@@ -23,6 +19,10 @@ import (
 	"chega-junto-concurseiro-web/internal/simulados"
 	"chega-junto-concurseiro-web/internal/usuarios"
 	"chega-junto-concurseiro-web/internal/whitelabel"
+	"context"
+	"database/sql"
+	"log/slog"
+	"net/http"
 )
 
 type Servidor struct {
@@ -218,5 +218,8 @@ func (s *Servidor) Rotas() http.Handler {
 	mux.HandleFunc("GET /api/v1/alunos/{alunoId}/metricas/materias", s.comAutenticacao(s.materiasMetricas))
 
 	// Cadeia: CORS → Rate Limit Global (por IP) → Logger → Rotas
+	if s.cfg.FrontendPath != "" {
+		mux.HandleFunc("GET /{caminho...}", s.servirFrontend)
+	}
 	return s.cors(s.limitarGlobal()(s.registrar(mux)))
 }
